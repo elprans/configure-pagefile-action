@@ -17,15 +17,15 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: configure Pagefile
-      uses: al-cheb/configure-pagefile-action@v1.2
+      uses: elprans/configure-pagefile-action@v2
       with:
-        minimum-size: 8
+        minimum-size: 8GB
 
     - name: configure Pagefile
-      uses: al-cheb/configure-pagefile-action@v1.2
+      uses: elprans/configure-pagefile-action@v2
       with:
-        minimum-size: 8
-        maximum-size: 16
+        minimum-size: 8GB
+        maximum-size: 16GB
         disk-root: "D:"
 ```
 
