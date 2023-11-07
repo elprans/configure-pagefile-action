@@ -1,19 +1,23 @@
 name: Validate action
 on:
   push:
+    branches:
+      - master
   pull_request:
+  workflow_dispatch:
   schedule:
     - cron: 0 0 * * *
 
 jobs:
   default-parameters:
     strategy:
+      fail-fast: false
       matrix:
-        os: [ windows-2016, windows-2019 ]
+        os: [ windows-2022, windows-2019 ]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: configure-pagefile-action
       uses: ./
@@ -29,13 +33,13 @@ jobs:
   custom-parameters:
     strategy:
       matrix:
-        os: [ windows-2016, windows-2019 ]
-        disk-root: [ "C:", "D:" ]
+        os: [ windows-2022, windows-2019 ]
+        disk-root: [ "C:" ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: configure-pagefile-action
       uses: ./
