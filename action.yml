@@ -12,6 +12,7 @@ inputs:
   disk-root:
     description: 'Set disk root where pagefile.sys will be located'
     required: false
+    default: "C:"
 runs:
   using: 'composite'
   steps:

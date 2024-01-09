@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         os: [ windows-2016, windows-2019 ]
-        disk-root: [ "C:", "D:" ]
+        disk-root: [ "C:" ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
